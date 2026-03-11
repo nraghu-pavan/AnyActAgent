@@ -1,0 +1,13 @@
+1 User opens browser extension
+2 User submits goal
+3 Security layer validates request
+4 Request sent to API Gateway
+5 FastAPI planner generates execution plan
+6 Task orchestrator coordinates agents
+7 Memory layer stores session context
+8 LLM performs reasoning
+9 EventBridge triggers scheduled tasks
+10 GAIA platform receives trigger
+11 Execution workers run automation
+12 Results returned to user
+13 Observability layer records metrics
