@@ -1,0 +1,46 @@
+id,parent,label
+user,,User Browser (Chrome / Edge)
+extension,user,Browser Extension - React UI / Run Saved Agent / Schedule Agent / Marketplace
+security,extension,Client Security Layer - Domain Whitelisting / Sensitive Data Masking
+local_execution,security,Local Execution Engine - Puppeteer Core / Chrome DevTools Protocol
+api_gateway,local_execution,AWS API Gateway - TLS termination / JWT validation / Rate limiting
+platform_api,api_gateway,Agent Platform API - FastAPI on ECS Fargate
+planner,platform_api,Planner Service
+task_orchestrator,platform_api,Task Orchestrator
+agent_registry,platform_api,Agent Registry
+scheduling_api,platform_api,Scheduling API
+marketplace_api,platform_api,Agent Marketplace API
+agent_services,platform_api,Agent Services
+navigation_agent,agent_services,Navigation Agent
+extraction_agent,agent_services,Extraction Agent
+validation_agent,agent_services,Validation Agent
+browser_agent,agent_services,Browser Agent
+enterprise_agents,platform_api,Enterprise Agents
+document_agent,enterprise_agents,Document Agent
+rag_agent,enterprise_agents,Q&A / RAG Agent
+api_agent,enterprise_agents,API / Data Agent
+automation_agent,enterprise_agents,Automation Agent
+data_layer,platform_api,Data Layer
+dynamodb,data_layer,DynamoDB - Agent registry / workflows
+redis,data_layer,Redis - Session memory / workflow state
+opensearch,data_layer,OpenSearch - Vector embeddings
+ai_layer,platform_api,AI Layer
+openai,ai_layer,OpenAI
+claude,ai_layer,Claude
+enterprise_llm,ai_layer,Internal Enterprise LLM
+scheduler,platform_api,AWS EventBridge Scheduler
+worker_gateway,scheduler,Internal Worker Gateway
+kubernetes,worker_gateway,Internal Kubernetes Cluster
+workers,kubernetes,Agent Execution Workers
+enterprise_systems,workers,Enterprise Systems
+web_apps,enterprise_systems,Internal Web Applications
+enterprise_apis,enterprise_systems,Enterprise APIs
+internal_db,enterprise_systems,Internal Databases
+docs_repo,enterprise_systems,Document Repositories
+observability,,Observability Layer
+cloudwatch,observability,CloudWatch
+prometheus,observability,Prometheus
+opentelemetry,observability,OpenTelemetry
+langfuse,observability,Langfuse
+mlflow,observability,MLflow
+audit_logs,observability,Audit Logs
