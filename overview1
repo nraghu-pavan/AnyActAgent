@@ -1,0 +1,22 @@
+Overview
+
+The Agentic AI Platform is designed to transform how organizations execute operational and business workflows by introducing autonomous AI agents capable of performing multi-step tasks across enterprise applications. Many enterprise processes today require employees to manually navigate multiple systems—collecting data, performing analysis, updating records, and generating reports. This manual approach is time-consuming, error-prone, and difficult to scale.
+
+The platform addresses this challenge by enabling intelligent agents that can understand context, reason about tasks, and execute actions across web-based enterprise systems. Delivered through a browser extension and a centralized backend orchestration platform, these agents can interact directly with enterprise applications, retrieve relevant information, analyze it using AI models, and perform the required workflow steps autonomously.
+
+A key component of the platform is the Agent Marketplace, which allows teams to create, publish, and share reusable agents tailored to specific domains such as operations, support, finance, or compliance. This enables organizations to build a library of reusable automation capabilities, accelerating adoption and reducing the need to recreate automation logic across teams.
+
+The platform also includes a governance and security layer to ensure enterprise-grade control. This includes capabilities such as role-based access control, domain whitelisting, execution monitoring, audit logging, and compliance enforcement. These features allow organizations to scale AI-driven automation while maintaining security and regulatory requirements.
+
+By combining autonomous agents, reusable workflows, and centralized governance, the Agentic AI Platform helps organizations reduce manual operational effort, accelerate business processes, and enable scalable adoption of AI-powered automation across the enterprise. 🚀
+
+one more with higlighting features in 10 lines
+Overview with Key Features
+
+The Agentic AI Platform enables organizations to automate complex enterprise workflows using autonomous AI agents that can interact with web-based applications and execute multi-step tasks. Delivered through a browser extension and centralized orchestration platform, the solution allows teams to build and deploy intelligent agents without deep system integrations.
+
+Key features include Autonomous AI Agents capable of reasoning and executing workflows across applications, a Browser Extension Execution Layer that enables agents to operate directly within enterprise web systems, and a Central Agent Orchestrator that manages task planning, execution, and coordination. The platform provides an Agent Marketplace where teams can publish and reuse domain-specific agents across business units.
+
+It also includes Workflow Memory and Context Management to improve agent decision-making, a Tool and Action Library for interacting with enterprise systems, and Enterprise Governance Controls such as access control, domain whitelisting, and audit logging. With built-in Observability and Monitoring, organizations can track agent execution, performance, and compliance.
+
+Together, these capabilities enable secure, scalable, and reusable AI-driven automation, significantly reducing manual operational effort and accelerating enterprise workflows. 🚀
