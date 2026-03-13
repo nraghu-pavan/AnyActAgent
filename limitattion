@@ -1,0 +1,643 @@
+Below are Design Limitations you can add to your document/slide based on the security and architecture constraints shown in your screenshot (enterprise environment like JPMorgan standards + browser extension agent platform). These are typically required for architecture review / security review.
+
+Design Limitations – Agentic AI Browser Extension Platform
+1. Browser Extension Environment Limitations
+
+Browser extensions operate within sandboxed browser environments, restricting direct access to system resources and enterprise applications.
+
+Extensions rely on DOM access and browser APIs, which may change depending on browser updates or application UI changes.
+
+Enterprise browser policies may restrict extension capabilities such as script injection, cross-origin requests, or external API calls.
+
+Extension execution is limited to user browser sessions, meaning agents cannot operate when the browser is closed or inactive.
+
+2. Data Security and Privacy Limitations
+
+Sensitive business data processed within the browser must comply with data masking and redaction policies before being used by AI agents.
+
+Raw enterprise data cannot be transmitted to external LLM providers unless explicitly approved.
+
+Browser storage mechanisms (localStorage, sessionStorage, IndexedDB) are not suitable for storing sensitive business data.
+
+Client-side masking may not guarantee 100% coverage of sensitive information due to DOM variability or application design.
+
+3. AI Model Limitations
+
+Large Language Models may produce non-deterministic responses and occasional hallucinations.
+
+Model reasoning is dependent on quality and completeness of provided context.
+
+LLM outputs may require validation against enterprise systems before execution.
+
+Model drift and updates from external providers may impact behavior over time.
+
+4. Authentication and Session Constraints
+
+Authentication must rely on enterprise SSO mechanisms such as SAML or OIDC.
+
+Browser-based session management is limited by browser session lifetime and security policies.
+
+Session tokens must follow strict timeout policies such as:
+
+inactivity timeout
+
+absolute session expiration
+
+token refresh cycles
+
+5. Agent Execution Limitations
+
+Agents operating in browser environments depend on UI structure and DOM consistency, making them sensitive to UI changes.
+
+Autonomous execution capabilities must remain restricted by policy guardrails to prevent unauthorized actions.
+
+Agents cannot bypass enterprise access controls or privileged authorization boundaries.
+
+Some enterprise workflows may require server-side orchestration rather than client-only execution.
+
+6. Compliance and Governance Constraints
+
+All agent actions must be auditable and traceable through logging and monitoring systems.
+
+The platform must comply with enterprise policies related to:
+
+data protection
+
+encryption
+
+access control
+
+audit requirements
+
+Deployment must follow internal CI/CD and packaging approval processes for browser extensions.
+
+7. Deployment and Packaging Limitations
+
+Extensions must be distributed through approved internal enterprise channels.
+
+Unpacked extensions or sideloaded builds are not allowed in production environments.
+
+All builds must pass security scanning tools such as:
+
+SAST
+
+dependency scanning
+
+vulnerability scanning
+
+8. Integration Limitations
+
+Direct integration with internal systems may require additional API gateways or service layers.
+
+Some enterprise systems may restrict automation or programmatic access.
+
+Network policies and firewall restrictions may limit external service connectivity.
+
+9. Observability and Monitoring Constraints
+
+Logging must exclude sensitive user or business data.
+
+Monitoring systems must be integrated with enterprise observability platforms.
+
+AI decision-making must support traceability and explainability for audit and compliance.
+
+10. Fail-Safe and Operational Limitations
+
+Agents must support safe fallback mechanisms if errors or unexpected conditions occur.
+
+Emergency shutdown controls must exist to disable agents during incidents.
+
+System must support rollback capabilities if automated actions cause unintended outcomes.
+
+Short Version (Good for Slide)
+
+Design Limitations
+
+Browser extension sandbox restricts system-level access.
+
+Sensitive data cannot be stored or transmitted without masking.
+
+LLM responses may contain hallucinations and require validation.
+
+Agent automation depends on stable UI and DOM structure.
+
+Enterprise authentication and session policies must be enforced.
+
+Extension deployment must follow internal CI/CD and security scanning.
+
+All agent actions must be auditable and policy compliant.
+
+If you'd like, I can also provide one final Architecture Review slide containing:
+
+Overview
+
+Benefits
+
+Use cases
+
+Security controls
+
+Design limitations
+
+which is perfect for architecture approval presentations.
+
+can you give on this basis
+
+Below is a clean “Design Constraints & Limitations” section rewritten based on the points in your screenshot. This version is architecture-review friendly and suitable for security/compliance documentation or a slide.
+
+Design Constraints & Limitations
+1. Regulatory and CTC Approvals
+
+Deployment of browser extensions in enterprise VDI environments requires additional firm-wide regulatory approvals and CTC (Cyber Technology Controls) reviews. Unlike standard applications, browser extensions must pass enhanced security and governance checks before production deployment.
+
+2. Data Minimization and DOM Scope
+
+The extension must strictly follow a data minimization principle:
+
+Only parse and process the minimum required DOM elements.
+
+Sensitive or confidential fields must never be extracted or transmitted.
+
+DOM scraping should be restricted to approved elements and attributes.
+
+3. Compliance for Model Integrations
+
+Integration with AI models must follow strict compliance rules:
+
+Highly confidential or restricted enterprise data must never be transmitted to external AI services without explicit approval.
+
+All sensitive attributes must be redacted or anonymized before AI processing.
+
+AI integrations must comply with internal data governance and AI usage policies.
+
+4. Handling Highly Confidential Attributes
+
+Sensitive enterprise data requires additional safeguards:
+
+Access must be protected using Role-Based Access Control (RBAC).
+
+Data must be encrypted during storage and transmission.
+
+DLP (Data Loss Prevention) checks and redaction mechanisms must be applied before any outbound communication.
+
+5. Prompt Confirmation and User Action Workflow
+
+Any operation involving external data transmission or irreversible automation must require:
+
+Explicit user confirmation
+
+Clear visibility of what data will be transmitted
+
+Approval before executing sensitive agent actions
+
+6. Multi-Tab, Concurrency, and Context Management
+
+Browser extensions operate in multi-tab environments, introducing concurrency challenges:
+
+Session context must be isolated per browser tab.
+
+Agent state must be synchronized to prevent race conditions or data leaks.
+
+Workflow state must be carefully coordinated across tabs.
+
+7. Agent Memory Management
+
+Agent memory must follow strict boundaries:
+
+Memory should be limited to user session and task scope.
+
+Long-term storage must use encrypted, enterprise-approved storage services.
+
+Access controls must prevent unauthorized cross-agent data sharing.
+
+8. Observability, Auditing, and Fail-Safe Controls
+
+The platform must support strong operational governance:
+
+Centralized telemetry and logging for agent activity.
+
+Audit trails for agent decisions and actions.
+
+Fail-safe mechanisms and circuit breakers to stop agents if policy violations or system errors occur.
+
+9. Testing and Performance Constraints
+
+The platform must undergo comprehensive validation:
+
+Cross-browser compatibility testing.
+
+Validation of asynchronous UI behavior.
+
+Security testing for browser APIs and extension permissions.
+
+Performance testing to ensure agents remain responsive under concurrent usage.
+
+10. Browser Compatibility and Deployment Controls
+
+The solution must maintain compatibility across enterprise-approved browsers:
+
+Chrome
+
+Edge
+
+Firefox (where required)
+
+Deployment must support:
+
+Extension packaging and signing
+
+Policy-based updates
+
+Controlled rollbacks
+
+Compatibility with enterprise VDI environments
+
+Short Slide Version
+
+Design Constraints
+
+Requires regulatory and CTC approvals for VDI deployment
+
+Strict DOM data minimization and sensitive field exclusion
+
+External AI integrations must comply with data governance policies
+
+Sensitive attributes protected via RBAC, encryption, and DLP checks
+
+User confirmation required for external data transmission or critical actions
+
+Session context isolated per browser tab to avoid concurrency issues
+
+Agent memory restricted to session scope with encrypted storage
+
+Centralized observability, auditing, and fail-safe controls required
+
+Cross-browser testing and performance validation mandatory
+
+Enterprise packaging, signing, and controlled extension deployment required
+
+
+------------------------------------------------------------------
+1. Regulatory / CTC Approval Mitigation
+Problem
+
+Browser extensions in enterprise VDI environments require strict approvals.
+
+Mitigation
+
+Implement controlled capability architecture.
+
+Approach
+
+Extension
+   ↓
+Capability Guard
+   ↓
+Approved Actions Only
+
+Controls:
+
+Feature flags for agents
+
+Capability allowlist
+
+Policy configuration pushed from backend
+
+Example:
+
+{
+ "allowed_actions": [
+   "read_dom",
+   "extract_table",
+   "submit_form"
+ ]
+}
+
+Benefits:
+
+Limits extension behavior
+
+Simplifies regulatory review.
+
+2. Data Minimization & DOM Scope
+Problem
+
+Extensions can accidentally capture sensitive data.
+
+Mitigation
+
+Use DOM Allowlist Extraction instead of scraping.
+
+Webpage
+ ↓
+DOM Filter
+ ↓
+Allowlist Elements
+ ↓
+Sanitized Context
+
+Example rule:
+
+{
+ "allowed_selectors": [
+   "#invoice-id",
+   "#status",
+   "#amount"
+ ]
+}
+
+Also implement:
+
+sensitive field detection
+
+attribute filtering
+
+regex masking.
+
+3. AI Model Compliance
+Problem
+
+Enterprise data cannot be sent to external LLMs.
+
+Mitigation
+
+Implement AI Gateway + Context Sanitizer.
+
+Extension
+ ↓
+Context Sanitizer
+ ↓
+AI Gateway
+ ↓
+LLM
+
+Controls:
+
+remove PII
+
+redact tokens
+
+enforce prompt policy.
+
+Example prompt wrapper:
+
+Only use provided context.
+Do not infer missing information.
+If data is unavailable return "Not available".
+4. Handling Highly Confidential Data
+Problem
+
+Sensitive attributes could leak.
+
+Mitigation
+
+Apply multi-layer data protection.
+
+Layer 1
+
+DOM redaction
+
+Layer 2
+
+Extension masking
+
+Layer 3
+
+Encryption before storage
+
+Example:
+
+Credit Card
+4111 1111 1111 1111
+→ **** **** **** 1111
+
+Also enforce:
+
+RBAC
+
+encryption in memory layer.
+
+5. Prompt Confirmation / User Action Workflow
+Problem
+
+Agents may perform irreversible actions.
+
+Mitigation
+
+Use human-in-the-loop confirmation.
+
+Example flow:
+
+Agent Suggestion
+ ↓
+User Confirmation
+ ↓
+Execute Action
+
+UI confirmation example:
+
+Agent will submit payment request.
+Proceed?
+[Confirm] [Cancel]
+6. Multi-Tab & Concurrency Issues
+Problem
+
+Extensions operate across multiple tabs.
+
+Mitigation
+
+Implement tab-isolated sessions.
+
+Architecture:
+
+Tab1 → session_id_1
+Tab2 → session_id_2
+Tab3 → session_id_3
+
+Store state in:
+
+Redis
+session_id
+workflow_state
+
+Use:
+
+tabId
+
+workflowId
+
+locking mechanism.
+
+7. Agent Memory Isolation
+Problem
+
+Agents may share memory incorrectly.
+
+Mitigation
+
+Use scoped memory model.
+
+User Session
+  ↓
+Agent Task
+    ↓
+Memory Context
+
+Example structure:
+
+{
+ "user_id": "123",
+ "session_id": "abc",
+ "agent_id": "invoice_agent",
+ "context": {}
+}
+
+Prevent cross-agent leakage.
+
+8. Observability & Fail-Safe Controls
+Problem
+
+Agent actions must be auditable.
+
+Mitigation
+
+Add agent telemetry pipeline.
+
+Architecture:
+
+Agent Execution
+   ↓
+Telemetry Collector
+   ↓
+Monitoring
+
+Track:
+
+agent actions
+
+prompt usage
+
+failures
+
+anomalies.
+
+Add circuit breaker:
+
+Policy violation → stop agent
+9. Testing Strategy
+Problem
+
+Extensions are hard to test across environments.
+
+Mitigation
+
+Use multi-layer testing.
+
+Testing types:
+
+cross-browser tests
+
+UI automation tests
+
+agent workflow tests
+
+security testing
+
+load testing.
+
+Tools:
+
+Playwright
+Cypress
+Selenium
+10. Browser Compatibility Mitigation
+Problem
+
+Chrome / Edge / Firefox differences.
+
+Mitigation
+
+Define compatibility abstraction layer.
+
+Browser Adapter
+   ↓
+Chrome APIs
+Edge APIs
+Firefox APIs
+
+Follow:
+
+Manifest v3
+
+extension permission minimization.
+
+11. Secure Extension Deployment
+Problem
+
+Enterprise deployment requires strict packaging.
+
+Mitigation
+
+Follow controlled pipeline:
+
+CI/CD
+ ↓
+Security scanning
+ ↓
+Extension signing
+ ↓
+Enterprise distribution
+
+Scans include:
+
+SAST
+
+dependency scanning
+
+permission analysis.
+
+12. Additional Mitigation for AI Hallucination
+
+Because your system uses AI agents:
+
+Use four controls together.
+
+RAG retrieval
+structured memory
+tool-based queries
+output validation
+
+Example:
+
+LLM → fetch invoice data
+tool → database query
+LLM → generate response
+validator → verify output
+Final Architecture Mitigation Pattern
+Browser Extension
+      ↓
+DOM Allowlist + Masking
+      ↓
+API Gateway
+      ↓
+FastAPI Orchestrator
+      ↓
+Memory Layer
+  DynamoDB
+  Redis
+  OpenSearch
+      ↓
+Policy Engine
+      ↓
+Agent Workers
+
+Security layers:
+
+DOM filtering
+PII masking
+RBAC
+Prompt guardrails
+Telemetry
+One Sentence Summary (for Architecture Review)
+
+The platform mitigates regulatory, security, and operational risks through DOM allowlist extraction, client-side masking, scoped agent memory, policy enforcement, human-in-the-loop confirmations, and centralized observability.
