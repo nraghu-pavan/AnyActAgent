@@ -1,0 +1,83 @@
+•	Search Agent → finds similar incidents 
+•	Resolution Agent → suggests fix 
+•	Confidence Agent → ranks output 
+o	Cosine similarity 
+•	Embeddings: 
+o	Sentence Transformers / OpenAI embeddings 
+
+•	Output: 
+o	Similar incidents (top N) 
+o	Suggested resolution steps 
+o	Confidence score 
+•	Ranking: 
+o	Semantic similarity 
+o	Service impact match
+
+o	Restart service 
+o	Trigger scripts 
+o	Rollback release 
+
+Engineers waste time:
+•	Searching past tickets 
+•	Re-solving known issues 
+________________________________________
+💡 Solution
+AI engine that:
+•	Matches incidents with past ones 
+•	Suggests fixes instantly 
+
+
+
+----------------------------------------------
+•	Input: 
+o	Splunk / Dynatrace alerts 
+•	Features: 
+o	Alert deduplication 
+o	Correlation grouping 
+o	Root cause hint 
+•	Output: 
+o	Reduced alerts 
+o	Priority tagging 
+•	Integrations: 
+o	Splunk Webhook 
+o	Dynatrace API 
+•	ML: 
+o	Isolation Forest / LSTM (optional) 
+•	Rule Engine: 
+o	Hybrid AI + rule-based filtering 
+
+-----------------------------------------------------------------------
+ L1/L2 Support Assistant (Conversational AI Ops Agent)
+📌 Problem
+•	L1 engineers depend on L2/L3 
+•	Slow response time 
+________________________________________
+💡 Solution
+Chat-based AI assistant:
+•	Answers operational queries 
+•	Suggests fixes 
+•	Guides troubleshooting 
+________________________________________
+⚙️ Functional Requirements
+•	Input: 
+o	Natural language query 
+•	Output: 
+o	Step-by-step guidance 
+o	Commands/scripts 
+•	Context: 
+o	Application-specific knowledge 
+•	Memory: 
+o	Past queries and solutions 
+•	Query Understanding Agent 
+•	Retriever Agent 
+•	Response Generator Agent 
+•	Log parsing (regex + NLP) 
+🧠 Agent Design
+•	Data Aggregator Agent 
+•	Correlation Agent 
+•	RCA Generator Agent 
+•	Agents collaborate: 
+o	Incident → RCA → Fix → Runbook update 
+•	Autonomous decisions: 
+o	Auto-healing without human intervention 
+
